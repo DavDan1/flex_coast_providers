@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -8,23 +8,18 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import { useSelector } from 'react-redux'
 import Inquiries from '../modules/Inquiries'
+import InquiryRows from './InquiryRows'
 
 const InquiryTable = () => {
   const { inquiries } = useSelector((state) => state)
+  
 
   useEffect(() => {
-    Inquiries.index();
-  }, []);
+    Inquiries.index()
+  }, [])
 
   const inquiryRows = inquiries.map((item) => {
-    return (
-      <TableRow data-cy='inquiry' key={item.id}>
-        <TableCell data-cy='company'>{item.company}</TableCell>
-        <TableCell data-cy='email'>{item.email}</TableCell>
-        <TableCell data-cy='start-date'>{item.start_date}</TableCell>
-        <TableCell data-cy='inquiry_date'>{item.inquiry_date}</TableCell>
-      </TableRow>
-    )
+   return <InquiryRows item={item} />
   })
   return (
     <TableContainer component={Paper}>

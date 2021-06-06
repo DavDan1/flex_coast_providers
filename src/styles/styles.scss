@@ -32,3 +32,8 @@
   height: calc(100vh - 75px);
   @extend .view-container;
 }
+
+.MuiTableCell-root.collapsible-cell {
+  padding-bottom: 0;
+  padding-top: 0;
+}

@@ -9,7 +9,7 @@
       "email": "lucy@example.com",
       "flexible": true,
       "phone": "0707123456",
-      "locations": "['Gothenburg City', 'Southside']",
+      "locations": ["Gothenburg City", "Southside"],
       "start_date": "21 Jun 2021",
       "inquiry_date": "06 Jun 2021"
     },
@@ -22,7 +22,7 @@
       "email": "kimmy@example.com",
       "flexible": true,
       "phone": "0707123456",
-      "locations": "['Gothenburg City', 'Southside']",
+      "locations": ["Gothenburg City", "Southside"],
       "start_date": "21 Jun 2021",
       "inquiry_date": "06 Jun 2021"
     },
@@ -35,7 +35,7 @@
       "email": "chrissy@example.com",
       "flexible": true,
       "phone": "0707123456",
-      "locations": "['Gothenburg City', 'Southside']",
+      "locations": ["Gothenburg City", "Southside"],
       "start_date": "21 Jun 2021",
       "inquiry_date": "06 Jun 2021"
     }
