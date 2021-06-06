@@ -28,7 +28,7 @@ const InquiryRows = ({ item }) => {
                 <p data-cy='size'>Amount of employees: {item.size}</p>
                 <p data-cy='office-type'>Office type: {item.office_type}</p>
                 <p data-cy='peers'>
-                  Would {!item.peers && 'not'} like to sit with peers
+                  Would {!item.peers && 'not'}like to sit with peers
                 </p>
                 <p data-cy='flexible'>
                   Flexible or fulltime:{' '}
