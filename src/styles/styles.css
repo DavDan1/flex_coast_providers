@@ -5,8 +5,9 @@
 }
 
 .view-container, .dashboard-container {
-  margin: 75px 200px;
-  margin-bottom: 0;
+  padding-top: 75px;
+  padding-left: 275px;
+  padding-right: 75px;
 }
 
 .header {
@@ -39,6 +40,7 @@
 }
 
 .dashboard-container {
+  background-color: #02afb0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,7 +54,29 @@
 }
 
 .MuiTableCell-root.collapsible-cell {
+  background-color: rgba(222, 222, 222, 0.2);
   padding-bottom: 0;
   padding-top: 0;
+}
+
+.MuiTableCell-root.collapsible-cell .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.MuiTableCell-root.collapsible-cell .wrapper .info-container {
+  padding: 15px;
+}
+
+.MuiTableCell-root.collapsible-cell .wrapper .notes-container {
+  height: 100px;
+  width: 25%;
+  border: 1px solid lightgrey;
 }
 /*# sourceMappingURL=styles.css.map */

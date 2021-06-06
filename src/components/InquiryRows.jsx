@@ -19,22 +19,28 @@ const InquiryRows = ({ item }) => {
       </TableRow>
       <TableRow>
         <TableCell
+          colSpan={4}
           className='collapsible-cell'
           data-cy='inquiry-collapsible-cell'>
           <Collapse in={open} timeout='auto' unmountOnExit>
-            <div>
-              <p data-cy='company'>{item.company}</p>
-              <p data-cy='size'>{item.size}</p>
-              <p data-cy='office-type'>{item.office_type}</p>
-              <p data-cy='peers'>{item.peers ? 'yes' : 'no'}</p>
-              <p data-cy='flexible'>{item.flexible ? 'yes' : 'no'}</p>
-              <p data-cy='locations'>{item.locations.join(', ')}</p>
-              <p data-cy='start-date'>{item.start_date}</p>
-              <p data-cy='inquiry-date'>{item.inquiry_date}</p>
-              <p data-cy='email'>{item.email}</p>
-              <p data-cy='phone'>{item.phone}</p>
+            <div className='wrapper'>
+              <div className='info-container'>
+                <p data-cy='size'>Amount of employees: {item.size}</p>
+                <p data-cy='office-type'>Office type: {item.office_type}</p>
+                <p data-cy='peers'>
+                  Would {!item.peers && 'not'} like to sit with peers
+                </p>
+                <p data-cy='flexible'>
+                  Flexible or fulltime:{' '}
+                  {item.flexible ? 'flexible' : 'full time'}
+                </p>
+                <p data-cy='locations'>
+                  Locations: {item.locations.join(', ')}
+                </p>
+                <p data-cy='phone'>Phone number: {item.phone}</p>
+              </div>
+              <div className='notes-container'></div>
             </div>
-            <div></div>
           </Collapse>
         </TableCell>
       </TableRow>

@@ -12,24 +12,23 @@ import InquiryRows from './InquiryRows'
 
 const InquiryTable = () => {
   const { inquiries } = useSelector((state) => state)
-  
 
   useEffect(() => {
     Inquiries.index()
   }, [])
 
   const inquiryRows = inquiries.map((item) => {
-   return <InquiryRows item={item} />
+    return <InquiryRows item={item} />
   })
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={3}>
       <Table aria-label='simple table'>
         <TableHead>
           <TableRow>
             <TableCell>Company</TableCell>
-            <TableCell align='right'>Email</TableCell>
-            <TableCell align='right'>Start Date</TableCell>
-            <TableCell align='right'>Recived At</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Start Date</TableCell>
+            <TableCell>Recived At</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>{inquiryRows}</TableBody>

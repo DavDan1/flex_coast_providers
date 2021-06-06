@@ -13,6 +13,7 @@ $drawerWidth: 200px;
 
 // Blueprints
 .view-container {
-  margin: 75px $drawerWidth;
-  margin-bottom: 0;
+  padding-top: 75px;
+  padding-left: $drawerWidth + 75px;
+  padding-right: 75px;
 }
