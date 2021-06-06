@@ -10,8 +10,8 @@
       "flexible": true,
       "phone": "0707123456",
       "locations": "['Gothenburg City', 'Southside']",
-      "start_date": "2021-06-21",
-      "inquired_at": "2021-06-19"
+      "start_date": "21 Jun 2021",
+      "inquiry_date": "06 Jun 2021"
     },
     {
       "id": 2,
@@ -23,8 +23,8 @@
       "flexible": true,
       "phone": "0707123456",
       "locations": "['Gothenburg City', 'Southside']",
-      "start_date": "2021-06-21",
-      "inquired_at": "2021-06-17"
+      "start_date": "21 Jun 2021",
+      "inquiry_date": "06 Jun 2021"
     },
     {
       "id": 3,
@@ -36,8 +36,8 @@
       "flexible": true,
       "phone": "0707123456",
       "locations": "['Gothenburg City', 'Southside']",
-      "start_date": "2021-06-21",
-      "inquired_at": "2021-06-16"
+      "start_date": "21 Jun 2021",
+      "inquiry_date": "06 Jun 2021"
     }
   ]
 }

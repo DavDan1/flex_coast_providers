@@ -19,8 +19,8 @@ describe('User can see the inquiries', () => {
         .within(() => {
           cy.get('[data-cy=email]').should('contain', 'lucy@example.com')
           cy.get('[data-cy=company]').should('contain', 'comp1')
-          cy.get('[data-cy=start-date]').should('contain', '2021-06-21')
-          cy.get('[data-cy=inquired-at]').should('contain', '2021-06-19')
+          cy.get('[data-cy=start-date]').should('contain', '21 Jun 2021')
+          cy.get('[data-cy=inquiry_date]').should('contain', '06 Jun 2021')
         })
     })
   })
