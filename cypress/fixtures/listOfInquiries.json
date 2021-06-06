@@ -1,0 +1,43 @@
+{
+  "inquiries": [
+    {
+      "id": 1,
+      "size": "1",
+      "office_type": "office",
+      "company": "comp1",
+      "peers": true,
+      "email": "lucy@example.com",
+      "flexible": true,
+      "phone": "0707123456",
+      "locations": "['Gothenburg City', 'Southside']",
+      "start_date": "2021-06-21",
+      "inquired_at": "2021-06-19"
+    },
+    {
+      "id": 2,
+      "size": "2",
+      "office_type": "office",
+      "company": "comp2",
+      "peers": true,
+      "email": "kimmy@example.com",
+      "flexible": true,
+      "phone": "0707123456",
+      "locations": "['Gothenburg City', 'Southside']",
+      "start_date": "2021-06-21",
+      "inquired_at": "2021-06-17"
+    },
+    {
+      "id": 3,
+      "size": "1",
+      "office_type": "office",
+      "company": "comp3",
+      "peers": true,
+      "email": "chrissy@example.com",
+      "flexible": true,
+      "phone": "0707123456",
+      "locations": "['Gothenburg City', 'Southside']",
+      "start_date": "2021-06-21",
+      "inquired_at": "2021-06-16"
+    }
+  ]
+}
