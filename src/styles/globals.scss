@@ -2,6 +2,7 @@
 $mainColor: #02afb0;
 $secondaryColor: #fe876f;
 $drawerWidth: 200px;
+$smallScreen: 600px;
 
 // Globals
 * {
@@ -16,4 +17,8 @@ $drawerWidth: 200px;
   padding-top: 75px;
   padding-left: $drawerWidth + 75px;
   padding-right: 75px;
+
+  @media only screen and (max-width: $smallScreen) {
+    padding: 75px 10px 0 10px;
+  }
 }

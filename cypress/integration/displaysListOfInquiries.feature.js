@@ -18,7 +18,7 @@ describe('User can see the inquiries', () => {
         .first()
         .within(() => {
           cy.get('[data-cy=email]').should('contain', 'lucy@example.com')
-          cy.get('[data-cy=company]').should('contain', 'comp1')
+          cy.get('[data-cy=company]').should('contain', 'Flex Coast')
           cy.get('[data-cy=start-date]').should('contain', '21 Jun 2021')
           cy.get('[data-cy=inquiry-date]').should('contain', '06 Jun 2021')
         })
@@ -28,9 +28,18 @@ describe('User can see the inquiries', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
         cy.get('[data-cy=size]').should('contain', 'Amount of employees: 1')
         cy.get('[data-cy=office-type]').should('contain', 'Office type: office')
-        cy.get('[data-cy=peers]').should('contain', ' Would like to sit with peers')
-        cy.get('[data-cy=flexible]').should('contain', 'Flexible or fulltime: flexible')
-        cy.get('[data-cy=locations]').should('contain', 'Locations: Gothenburg City, Southside')
+        cy.get('[data-cy=peers]').should(
+          'contain',
+          'Would like to sit with peers'
+        )
+        cy.get('[data-cy=flexible]').should(
+          'contain',
+          'Flexible or fulltime: flexible'
+        )
+        cy.get('[data-cy=locations]').should(
+          'contain',
+          'Locations: Gothenburg City, Southside'
+        )
         cy.get('[data-cy=phone]').should('contain', 'Phone number: 0707123456')
       })
     })

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -9,9 +9,11 @@ import Paper from '@material-ui/core/Paper'
 import { useSelector } from 'react-redux'
 import Inquiries from '../modules/Inquiries'
 import InquiryRows from './InquiryRows'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const InquiryTable = () => {
   const { inquiries } = useSelector((state) => state)
+  const isSmall = useMediaQuery('(max-width:600px)')
 
   useEffect(() => {
     Inquiries.index()
@@ -21,14 +23,18 @@ const InquiryTable = () => {
     return <InquiryRows item={item} />
   })
   return (
-    <TableContainer component={Paper} elevation={3}>
+    <TableContainer className='table' component={Paper} elevation={3}>
       <Table aria-label='simple table'>
         <TableHead>
-          <TableRow>
+          <TableRow className='table-header'>
             <TableCell>Company</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Start Date</TableCell>
-            <TableCell>Recived At</TableCell>
+            <TableCell>Inquiry date</TableCell>
+            {!isSmall && (
+              <>
+                <TableCell>Email</TableCell>
+                <TableCell>Move in date</TableCell>
+              </>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>{inquiryRows}</TableBody>

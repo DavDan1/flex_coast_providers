@@ -4,12 +4,14 @@ import './styles/styles.css'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import BrokerDashboard from './views/BrokerDashboard'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const App = () => {
+  const isSmall = useMediaQuery('(max-width:600px)')
   return (
     <>
       <Header />
-      <Sidebar />
+      {!isSmall && <Sidebar />}
       <BrokerDashboard />
     </>
   )

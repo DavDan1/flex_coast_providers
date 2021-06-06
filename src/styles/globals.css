@@ -9,4 +9,10 @@
   padding-left: 275px;
   padding-right: 75px;
 }
+
+@media only screen and (max-width: 600px) {
+  .view-container {
+    padding: 75px 10px 0 10px;
+  }
+}
 /*# sourceMappingURL=globals.css.map */
