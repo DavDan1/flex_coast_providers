@@ -1,6 +1,5 @@
 const initialState = {
-  inquiries: []
+  inquiries: [],
 }
 
 export default initialState
-

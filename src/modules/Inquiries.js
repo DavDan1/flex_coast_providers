@@ -12,3 +12,5 @@ const Inquiries = {
     } catch (error) {}
   },
 }
+
+export default Inquiries
