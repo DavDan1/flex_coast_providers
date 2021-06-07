@@ -1,7 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 820px) {
+  * {
+    font-size: 16px;
+  }
 }
 
 .view-container, .dashboard-container {
@@ -37,6 +44,12 @@
 .header h4 {
   color: white;
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 820px) {
+  .header h4 {
+    font-size: 1.5rem;
+  }
 }
 
 .header .menu-button {
@@ -89,9 +102,13 @@
 }
 
 .table .MuiTableCell-root.collapsible-cell {
-  background-color: rgba(222, 222, 222, 0.2);
+  background-color: rgba(255, 208, 156, 0.2);
   padding-bottom: 0;
   padding-top: 0;
+}
+
+.table .MuiTableCell-root.collapsible-cell h4 {
+  margin-top: 25px;
 }
 
 .table .MuiTableCell-root.collapsible-cell .wrapper {
@@ -101,6 +118,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 25px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -112,17 +130,33 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
 }
 
 .table .MuiTableCell-root.collapsible-cell .wrapper .info-container {
+  width: 40%;
   padding: 15px;
+  line-height: 1.7rem;
+}
+
+@media only screen and (max-width: 820px) {
+  .table .MuiTableCell-root.collapsible-cell .wrapper .info-container {
+    width: 100%;
+  }
+}
+
+.table .MuiTableCell-root.collapsible-cell .wrapper .info-container p {
+  border-bottom: 1px solid lightgrey;
+}
+
+.table .MuiTableCell-root.collapsible-cell .wrapper .info-container p div {
+  display: inline;
+}
+
+.table .MuiTableCell-root.collapsible-cell .wrapper .info-container span {
+  float: right;
+  font-weight: bold;
+  text-align: end;
 }
 
 .table .MuiTableCell-root.collapsible-cell .wrapper .notes-container {
@@ -135,7 +169,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 150px;
+  height: 300px;
   margin: 15px;
   width: 50%;
   border: 1px solid lightgrey;

@@ -26,21 +26,25 @@ describe('User can see the inquiries', () => {
     it('is expected to show additional content on click', () => {
       cy.get('[data-cy=inquiry]').first().click()
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
-        cy.get('[data-cy=size]').should('contain', 'Amount of employees: 1')
-        cy.get('[data-cy=office-type]').should('contain', 'Office type: office')
-        cy.get('[data-cy=peers]').should(
-          'contain',
-          'Would like to sit with peers'
-        )
-        cy.get('[data-cy=flexible]').should(
-          'contain',
-          'Flexible or fulltime: flexible'
-        )
-        cy.get('[data-cy=locations]').should(
-          'contain',
-          'Locations: Gothenburg City, Southside'
-        )
-        cy.get('[data-cy=phone]').should('contain', 'Phone number: 0707123456')
+        cy.get('[data-cy=size]').find('span').should('contain', '1')
+        cy.get('[data-cy=office-type]').find('span').should('contain', 'office')
+        cy.get('[data-cy=peers]').find('span').should('contain', 'yes')
+        cy.get('[data-cy=flexible]').find('span').should('contain', 'flexible')
+        cy.get('[data-cy=locations]')
+          .find('span')
+          .first()
+          .should('contain', 'Gothenburg City')
+        cy.get('[data-cy=phone]').find('span').should('contain', '0707123456')
+
+        context('with additional info on a phone', () => {
+          cy.viewport(450, 750)
+          cy.get('[data-cy=email]')
+            .find('span')
+            .should('contain', 'lucy@example.com')
+          cy.get('[data-cy=start-date]')
+            .find('span')
+            .should('contain', '21 Jun 2021')
+        })
       })
     })
   })
