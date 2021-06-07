@@ -6,7 +6,9 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import Switch from '@material-ui/core/Switch'
+import IconButton from '@material-ui/core/IconButton'
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import { useSelector } from 'react-redux'
 import Inquiries from '../modules/Inquiries'
 import InquiryRows from './InquiryRows'
@@ -32,10 +34,13 @@ const InquiryTable = () => {
             <TableCell>Company</TableCell>
             <TableCell>
               Inquiry date{' '}
-              <Switch
-                className='date-switch'
-                onChange={() => setSortDate(!sortDate)}
-              />{' '}
+              <IconButton onClick={() => setSortDate(!sortDate)}>
+                {sortDate ? (
+                  <ArrowDownwardIcon className='date-switch' />
+                ) : (
+                  <ArrowUpwardIcon className='date-switch' />
+                )}
+              </IconButton>
             </TableCell>
             {!isSmall && (
               <>
