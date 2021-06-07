@@ -7,7 +7,7 @@ import BrokerDashboard from './views/BrokerDashboard'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const App = () => {
-  const isSmall = useMediaQuery('(max-width:600px)')
+  const isSmall = useMediaQuery('(max-width:820px)')
   return (
     <>
       <Header />

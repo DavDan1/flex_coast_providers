@@ -51,6 +51,15 @@
     font-weight: bold;
   }
 
+  .date-switch {
+    .MuiSwitch-colorSecondary.Mui-checked {
+      color: $mainColor;
+    }
+    .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+      background-color: $mainColor;
+    }
+  }
+
   .MuiTableCell-root.collapsible-cell {
     background-color: rgba(222, 222, 222, 0.2);
     padding-bottom: 0;

@@ -3,7 +3,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import PhoneSidebar from './PhoneSidebar'
 
 const Header = () => {
-  const isSmall = useMediaQuery('(max-width:600px)')
+  const isSmall = useMediaQuery('(max-width:820px)')
 
   return (
     <div className='header'>

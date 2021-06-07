@@ -10,11 +10,7 @@ const InquiryRows = ({ item }) => {
 
   return (
     <>
-      <TableRow
-        onClick={() => setOpen(!open)}
-        hover
-        data-cy='inquiry'
-        key={item.id}>
+      <TableRow onClick={() => setOpen(!open)} hover data-cy='inquiry'>
         <TableCell data-cy='company'>{item.company}</TableCell>
         <TableCell data-cy='inquiry-date'>{item.inquiry_date}</TableCell>
         {!isSmall && (
