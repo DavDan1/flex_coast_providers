@@ -30,6 +30,7 @@ const InquiryRows = ({ item }) => {
           <>
             <TableCell data-cy='email'>{item.email}</TableCell>
             <TableCell data-cy='start-date'>{item.start_date}</TableCell>
+            <TableCell data-cy='inquiry status'>{item.inquiry_status}</TableCell>
           </>
         )}
       </TableRow>
