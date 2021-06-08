@@ -59,7 +59,7 @@ describe('Broker is able to update status of inquiry', () => {
     it('is expected to display an error message', () => {
       cy.get('[data-cy=error-message]').should(
         'contain',
-        'Something went wrong, inquiry was not updated'
+        'Something went wrong, Please try again later'
       )
     })
   })

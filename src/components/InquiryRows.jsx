@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import Collapse from '@material-ui/core/Collapse'
@@ -10,13 +11,13 @@ import FormControl from '@material-ui/core/FormControl'
 import Inquiries from '../modules/Inquiries'
 
 const InquiryRows = ({ item }) => {
+  const { error, message } = useSelector((state) => state)
   const [open, setOpen] = useState(false)
   const isSmall = useMediaQuery('(max-width:600px)')
   const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
 
   const statusHandler = (value) => {
-    setInquiryStatus(value)
-    Inquiries.update(item.id, value)
+    Inquiries.update(item.id, value, setInquiryStatus)
   }
 
   return (
@@ -107,6 +108,7 @@ const InquiryRows = ({ item }) => {
                     </RadioGroup>
                   </FormControl>
                 </div>
+                {error && <p data-cy='error-message'>{message}</p>}
               </div>
               <div className='notes-container'>Notes placeholder</div>
             </div>
