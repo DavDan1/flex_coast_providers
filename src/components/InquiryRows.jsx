@@ -3,7 +3,11 @@ import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import Collapse from '@material-ui/core/Collapse'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { Divider } from '@material-ui/core'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormLabel from '@material-ui/core/FormLabel'
 
 const InquiryRows = ({ item }) => {
   const [open, setOpen] = useState(false)
@@ -51,7 +55,6 @@ const InquiryRows = ({ item }) => {
                       <span>{location}</span>
                       <br />
                     </div>
-
                   ))}
                 </p>
                 <p data-cy='phone'>
@@ -67,6 +70,31 @@ const InquiryRows = ({ item }) => {
                     </p>
                   </>
                 )}
+                <p>
+                  Status:
+                  <span>{item.inquiry_status}</span>
+                </p>
+                <p>
+                  <FormControl component='fieldset'>
+                    <RadioGroup name='status-action'>
+                      <FormControlLabel
+                        value='pending'
+                        control={<Radio />}
+                        label='Pending'
+                      />
+                      <FormControlLabel
+                        value='started'
+                        control={<Radio />}
+                        label='Started'
+                      />
+                      <FormControlLabel
+                        value='done'
+                        control={<Radio />}
+                        label='Done'
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </p>
               </div>
               <div className='notes-container'>Notes placeholder</div>
             </div>
