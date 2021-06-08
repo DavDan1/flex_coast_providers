@@ -30,13 +30,15 @@ const InquiryRows = ({ item }) => {
           <>
             <TableCell data-cy='email'>{item.email}</TableCell>
             <TableCell data-cy='start-date'>{item.start_date}</TableCell>
-            <TableCell data-cy='inquiry status'>{item.inquiry_status}</TableCell>
+            <TableCell data-cy='inquiry status'>
+              {item.inquiry_status}
+            </TableCell>
           </>
         )}
       </TableRow>
       <TableRow>
         <TableCell
-          colSpan={4}
+          colSpan={5}
           className='collapsible-cell'
           data-cy='inquiry-collapsible-cell'>
           <Collapse in={open} timeout='auto' unmountOnExit>
