@@ -7,11 +7,17 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
-import FormLabel from '@material-ui/core/FormLabel'
+import   Inquiries from '../modules/Inquiries'
 
 const InquiryRows = ({ item }) => {
   const [open, setOpen] = useState(false)
   const isSmall = useMediaQuery('(max-width:600px)')
+  const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
+
+  const statusHandler = (value)=> {
+    setInquiryStatus(value)
+    Inquiries.update(item.id,value)
+  }
 
   return (
     <>
@@ -76,18 +82,21 @@ const InquiryRows = ({ item }) => {
                 </p>
                 <p>
                   <FormControl component='fieldset'>
-                    <RadioGroup name='status-action'>
+                    <RadioGroup name='status-action' value={inquiryStatus} onChange={(event)=>statusHandler(event.target.value)}>
                       <FormControlLabel
+                      data-cy='status-btn-1'
                         value='pending'
                         control={<Radio />}
                         label='Pending'
                       />
                       <FormControlLabel
+                      data-cy='status-btn-2'
                         value='started'
                         control={<Radio />}
                         label='Started'
                       />
                       <FormControlLabel
+                      data-cy='status-btn-3'
                         value='done'
                         control={<Radio />}
                         label='Done'

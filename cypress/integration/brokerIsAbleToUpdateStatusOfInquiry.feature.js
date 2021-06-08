@@ -9,7 +9,7 @@ describe('Broker is able to update status of inquiry', () => {
     )
     cy.intercept(
       'PUT',
-      'https://flex-coast-development.herokuapp.com/api/inquiries',
+      'https://flex-coast-development.herokuapp.com/api/inquiries/**',
       {
         message: 'The inquiry status has been updated',
       }
@@ -26,7 +26,7 @@ describe('Broker is able to update status of inquiry', () => {
           'https://flex-coast-development.herokuapp.com/api/inquiries',
           { body: inquiries }
         ).as('inquiries')
-
+        cy.get('[data-cy=status-btn-2]').click()
         cy.wait('@inquiries').then(() => {
           inquiries[0].inquiry_status = 'started'
           cy.intercept(
@@ -36,8 +36,8 @@ describe('Broker is able to update status of inquiry', () => {
           )
         })
       })
-      cy.get('[data-cy=status-btn-2]').click()
-      cy.get('[data-cy=inquiry-status]').should('contain', 'started');
+
+      cy.get('[data-cy=inquiry-status]').should('contain', 'started')
     })
   })
 })

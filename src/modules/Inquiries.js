@@ -11,6 +11,13 @@ const Inquiries = {
       })
     } catch (error) {}
   },
+  async update(id, status) {
+    let params = {inquiry_status: status}
+    try {
+      let response = await axios.put(`/inquiries/${id}`, params)
+      debugger
+    } catch (error) {}
+  },
 }
 
 export default Inquiries
