@@ -51,6 +51,7 @@ const InquiryRows = ({ item }) => {
                       <span>{location}</span>
                       <br />
                     </div>
+
                   ))}
                 </p>
                 <p data-cy='phone'>
