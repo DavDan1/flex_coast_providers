@@ -60,6 +60,10 @@
   color: white;
 }
 
+.error-paragraph {
+  text-align: center;
+}
+
 .drawer .MuiDrawer-paper {
   width: 200px;
   margin-top: 75px;

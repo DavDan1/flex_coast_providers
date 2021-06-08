@@ -9,8 +9,13 @@ const rootReducer = (state, action) => {
       return {
         ...state,
         error: true,
-        open: true,
         message: action.payload,
+      }
+    case 'RESET_ERROR':
+      return {
+        ...state,
+        error: false,
+        message: '',
       }
     default:
       return state

@@ -62,5 +62,10 @@ describe('Broker is able to update status of inquiry', () => {
         'Something went wrong, Please try again later'
       )
     })
+
+    it('is expected to hide error message after 5 seconds', () => {
+      cy.wait(5000)
+      cy.get('[data-cy=error-message]').should('not.exist')
+    })
   })
 })

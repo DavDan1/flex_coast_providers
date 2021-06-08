@@ -5,10 +5,7 @@ const Inquiries = {
   async index() {
     try {
       let response = await axios.get('/inquiries')
-      store.dispatch({
-        type: 'SET_INQUIRIES',
-        payload: response.data.inquiries,
-      })
+      setInquiries(response)
     } catch (error) {}
   },
   async update(id, status, setInquiryStatus) {
@@ -18,18 +15,22 @@ const Inquiries = {
       setInquiryStatus(status)
       try {
         let response = await axios.get('/inquiries')
-        store.dispatch({
-          type: 'SET_INQUIRIES',
-          payload: response.data.inquiries,
-        })
+        setInquiries(response)
       } catch (error) {}
     } catch (error) {
       store.dispatch({
         type: 'SET_ERROR_MESSAGE',
-       payload: 'Something went wrong, Please try again later',
+        payload: 'Something went wrong, Please try again later',
       })
     }
   },
 }
 
 export default Inquiries
+
+const setInquiries = (response) => {
+  store.dispatch({
+    type: 'SET_INQUIRIES',
+    payload: response.data.inquiries,
+  })
+}
