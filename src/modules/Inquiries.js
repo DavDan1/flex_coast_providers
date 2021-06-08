@@ -12,11 +12,21 @@ const Inquiries = {
     } catch (error) {}
   },
   async update(id, status) {
-    let params = {inquiry_status: status}
+    let params = { form_data: { inquiry_status: status } }
     try {
-      let response = await axios.put(`/inquiries/${id}`, params)
+      await axios.put(`/inquiries/${id}`, params)
+      try {
+        let response = await axios.get('/inquiries')
+        store.dispatch({
+          type: 'SET_INQUIRIES',
+          payload: response.data.inquiries,
+        })
+      } catch (error) {
+        debugger
+      }
+    } catch (error) {
       debugger
-    } catch (error) {}
+    }
   },
 }
 

@@ -100,6 +100,18 @@
           float: right;
           font-weight: bold;
           text-align: end;
+          &:first-letter {
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      .status-buttons-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        div:first-of-type {
+          flex-direction: row;
         }
       }
 

@@ -7,16 +7,16 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
-import   Inquiries from '../modules/Inquiries'
+import Inquiries from '../modules/Inquiries'
 
 const InquiryRows = ({ item }) => {
   const [open, setOpen] = useState(false)
   const isSmall = useMediaQuery('(max-width:600px)')
   const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
 
-  const statusHandler = (value)=> {
+  const statusHandler = (value) => {
     setInquiryStatus(value)
-    Inquiries.update(item.id,value)
+    Inquiries.update(item.id, value)
   }
 
   return (
@@ -78,32 +78,35 @@ const InquiryRows = ({ item }) => {
                 )}
                 <p>
                   Status:
-                  <span>{item.inquiry_status}</span>
+                  <span data-cy='inquiry-status'>{item.inquiry_status}</span>
                 </p>
-                <p>
+                <div className='status-buttons-container'>
                   <FormControl component='fieldset'>
-                    <RadioGroup name='status-action' value={inquiryStatus} onChange={(event)=>statusHandler(event.target.value)}>
+                    <RadioGroup
+                      name='status-action'
+                      value={inquiryStatus}
+                      onChange={(event) => statusHandler(event.target.value)}>
                       <FormControlLabel
-                      data-cy='status-btn-1'
+                        data-cy='status-btn-1'
                         value='pending'
                         control={<Radio />}
                         label='Pending'
                       />
                       <FormControlLabel
-                      data-cy='status-btn-2'
+                        data-cy='status-btn-2'
                         value='started'
                         control={<Radio />}
                         label='Started'
                       />
                       <FormControlLabel
-                      data-cy='status-btn-3'
+                        data-cy='status-btn-3'
                         value='done'
                         control={<Radio />}
                         label='Done'
                       />
                     </RadioGroup>
                   </FormControl>
-                </p>
+                </div>
               </div>
               <div className='notes-container'>Notes placeholder</div>
             </div>
