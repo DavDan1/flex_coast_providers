@@ -12,7 +12,6 @@ const Authentication = {
       let response = auth.signIn(data.email, data.password)
     } catch (e) {}
   },
-  
 }
 
-export default auth
+export default Authentication
