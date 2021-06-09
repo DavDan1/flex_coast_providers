@@ -8,12 +8,35 @@ const ErrorSnackbar = () => {
   const { error, message } = useSelector((state) => state)
 
   useEffect(() => {
-    setTimeout(() => {
-      store.dispatch({
-        type: 'RESET_ERROR',
-      })
-    }, 5000)
-  }, [])
+    if (error) {
+      setTimeout(() => {
+        store.dispatch({
+          type: 'RESET_ERROR',
+        })
+      }, 5000)
+    }
+  }, [error])
+
+  const errorContent = (
+    <div className='error-snack-container'>
+      <p data-cy='error-snack'>{message}</p>
+    </div>
+  )
+
+  const errorAction = (
+    <IconButton
+      className='close-icon'
+      size='small'
+      aria-label='close'
+      color='inherit'
+      onClick={() =>
+        store.dispatch({
+          type: 'RESET_ERROR',
+        })
+      }>
+      <CloseIcon fontSize='small' />
+    </IconButton>
+  )
 
   return (
     <div>
@@ -22,23 +45,10 @@ const ErrorSnackbar = () => {
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'right',
-        }}>
-        <div className='error-snack-container'>
-          <IconButton
-          className='close-icon'
-            size='small'
-            aria-label='close'
-            color='inherit'
-            onClick={() =>
-              store.dispatch({
-                type: 'RESET_ERROR',
-              })
-            }>
-            <CloseIcon fontSize='small' />
-          </IconButton>
-          <p data-cy='error-snack'>{message}</p>
-        </div>
-      </Snackbar>
+        }}
+        message={errorContent}
+        action={errorAction}
+      />
     </div>
   )
 }

@@ -27,22 +27,24 @@
   }
 }
 
-.error-snack-container {
-  background-color: #ffd09c;
-  padding: 25px;
-  border-radius: 20px;
-  margin: 50px;
-  position: relative;
+.MuiSnackbarContent-root {
+  background-color: #ffd09c !important;
 }
 
-.error-snack-container .close-icon {
-  position: absolute;
-  left: 90%;
-  top: 0;
+.error-snack-container {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .error-snack-container p {
+  color: #333;
   margin-right: 10px;
+}
+
+.close-icon {
+  color: #333 !important;
+  float: right;
 }
 
 .logo {

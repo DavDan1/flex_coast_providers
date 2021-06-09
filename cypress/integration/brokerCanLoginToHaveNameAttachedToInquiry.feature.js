@@ -81,8 +81,4 @@ describe('Brokers have their names attached to initiated inquiries', () => {
       )
     })
   })
-
-  describe('Unsuccessfully as a non-authenticated broker', () => {
-    // Boots broker out to log in page
-  })
 })

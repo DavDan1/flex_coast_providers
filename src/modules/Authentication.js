@@ -1,5 +1,6 @@
 import store from '../state/store/configureStore'
 import JtockAuth from 'j-tockauth'
+import errorHandler from './ErrorHandler'
 
 const auth = new JtockAuth({
   host: 'https://flex-coast-development.herokuapp.com',
@@ -16,13 +17,19 @@ const Authentication = {
         payload: response.data.name,
       })
     } catch (error) {
-      store.dispatch({
-        type:'SET_ERROR_MESSAGE',
-        payload: error.response.data.data.errors,
-      })
-      console.log('somethings fishy here')
+      errorHandler(error)
     }
+  },
+
+  async validateToken() {
+    try {
+      await auth.validateToken(getHeaders())
+    } catch (error) {}
   },
 }
 
 export default Authentication
+
+const getHeaders = () => {
+  return JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
+}
