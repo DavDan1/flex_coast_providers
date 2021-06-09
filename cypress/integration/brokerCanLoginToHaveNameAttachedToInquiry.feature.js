@@ -24,6 +24,11 @@ describe('Brokers have their names attached to initiated inquiries', () => {
         'https://flex-coast-development.herokuapp.com/api/auth/sign_in',
         { fixture: 'broker.json' }
       )
+      cy.intercept(
+        'GET',
+        'https://flex-coast-development.herokuapp.com/api/auth/validate_token',
+        { fixture: 'broker.json', headers: { uid: 'johnny@cage.com' } }
+      )
       cy.get('[data-cy=email-field]').type('johnny@cage.com')
       cy.get('[data-cy=password-field]').type('password')
       cy.get('[data-cy=login-btn]').click()

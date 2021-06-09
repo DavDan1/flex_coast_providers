@@ -1,6 +1,7 @@
 const initialState = {
   inquiries: [],
-  authenticated: false
+  authenticated: false,
+  name: '',
 }
 
 export default initialState
