@@ -35,7 +35,18 @@
 .drawer {
   .MuiDrawer-paper {
     width: $drawerWidth;
-    margin-top: 75px;
+    background-color: $secondaryColor;
+    color: white;
+
+    .MuiSvgIcon-root {
+      color: white;
+    }
+
+    img {
+      margin: 50px 10px 5px ;
+      
+    }
+ 
   }
 }
 
@@ -52,7 +63,7 @@
 }
 
 .table {
-  margin-top: 50px;
+  //margin-top: 50px;
   height: auto;
   @media only screen and (max-width: $smallScreen) {
     max-width: 600px;

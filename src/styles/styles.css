@@ -66,7 +66,16 @@
 
 .drawer .MuiDrawer-paper {
   width: 200px;
-  margin-top: 75px;
+  background-color: #ffd09c;
+  color: white;
+}
+
+.drawer .MuiDrawer-paper .MuiSvgIcon-root {
+  color: white;
+}
+
+.drawer .MuiDrawer-paper img {
+  margin: 50px 10px 5px;
 }
 
 .status-popover {
@@ -87,7 +96,6 @@
 }
 
 .table {
-  margin-top: 50px;
   height: auto;
 }
 
