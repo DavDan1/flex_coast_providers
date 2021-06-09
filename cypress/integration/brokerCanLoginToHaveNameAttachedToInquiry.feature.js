@@ -59,12 +59,15 @@ describe('Brokers have their names attached to initiated inquiries', () => {
     })
   })
 
-  describe('Unsuccessfully with wrong credentials', () => {
+  describe.only('Unsuccessfully with wrong credentials', () => {
     beforeEach(() => {
       cy.intercept(
         'POST',
         'https://flex-coast-development.herokuapp.com/api/auth/sign_in',
-        { body: { data: { errors: ['Wrong credentials, please try again'] } } }
+        {
+          statusCode: 422,
+          body: { data: { errors: ['Wrong credentials, please try again'] } },
+        }
       )
       cy.get('[data-cy=email-field]').type('johnny@cage.com')
       cy.get('[data-cy=password-field]').type('assword')
@@ -72,7 +75,7 @@ describe('Brokers have their names attached to initiated inquiries', () => {
     })
 
     it('is expected to show an error message', () => {
-      cy.get('[data-cy=error-message]').should(
+      cy.get('[data-cy=error-snack]').should(
         'contain',
         'Wrong credentials, please try again'
       )

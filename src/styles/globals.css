@@ -27,6 +27,24 @@
   }
 }
 
+.error-snack-container {
+  background-color: #ffd09c;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 50px;
+  position: relative;
+}
+
+.error-snack-container .close-icon {
+  position: absolute;
+  left: 90%;
+  top: 0;
+}
+
+.error-snack-container p {
+  margin-right: 10px;
+}
+
 .logo {
   margin: 10px;
   margin-bottom: 25px;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import './styles/globals.css'
 import './styles/styles.css'
@@ -7,6 +7,7 @@ import BrokerDashboard from './views/BrokerDashboard'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import PhoneSidebar from './components/PhoneSidebar'
 import LoginLandingPage from './components/LoginLandingPage'
+import ErrorSnackbar from './components/ErrorSnackbar'
 // import Authentication from './modules/Authentication'
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <>
+    <ErrorSnackbar />
       {authenticated ? (
         <>
           {isSmall ? <PhoneSidebar /> : <Sidebar />}

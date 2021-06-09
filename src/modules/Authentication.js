@@ -16,6 +16,10 @@ const Authentication = {
         payload: response.data.name,
       })
     } catch (error) {
+      store.dispatch({
+        type:'SET_ERROR_MESSAGE',
+        payload: error.response.data.data.errors,
+      })
       console.log('somethings fishy here')
     }
   },
