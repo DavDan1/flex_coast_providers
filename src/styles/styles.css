@@ -29,6 +29,7 @@
 
 .logo {
   margin: 10px;
+  margin-bottom: 25px;
 }
 
 .header {
@@ -77,12 +78,17 @@
   color: white;
 }
 
+.drawer .MuiDrawer-paper p {
+  font-size: 14px;
+  text-align: center;
+}
+
 .drawer .MuiDrawer-paper .MuiSvgIcon-root {
   color: white;
 }
 
 .drawer .MuiDrawer-paper img {
-  margin: 50px 10px 5px;
+  margin: 50px 10px 25px;
 }
 
 .status-popover {
@@ -259,6 +265,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.login-page .login-container p {
+  margin-top: 50px;
+  font-size: 13px;
+  color: #333;
 }
 
 .login-page .login-container .form-container {

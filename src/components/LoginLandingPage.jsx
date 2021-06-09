@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button'
 import Authentication from '../modules/Authentication'
 
 const LoginLandingPage = () => {
-  const handleLogin = (e) => {
-    e.preventDefault()
-    Authentication.signIn(e.target)
+  const handleLogin = (event) => {
+    event.preventDefault()
+    Authentication.signIn(event.target)
   }
   return (
     <div className='login-page'>
@@ -37,6 +37,7 @@ const LoginLandingPage = () => {
             Login
           </Button>
         </form>
+        <p>Copyright © Flex Coast {new Date().getFullYear()}</p>
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ const Authentication = {
         type: 'AUTHENTICATE',
         payload: response.data.name,
       })
-    } catch (e) {
+    } catch (error) {
       console.log('somethings fishy here')
     }
   },

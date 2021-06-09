@@ -36,14 +36,17 @@ describe('Brokers have their names attached to initiated inquiries', () => {
 
     it('is expected to take broker to dashboard', () => {
       cy.get('[data-cy=inquiry]').should('have.length', 6)
+      cy.get('[data-cy=broker-name]').should('contain', 'Mr. Johnny')
     })
 
     it('is expected to attach brokers name to an inquiry if they changes status', () => {
       cy.get('[data-cy=inquiry]').first().click()
+      cy.get('[data-cy=broker]').should('not.exist')
 
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
         cy.fixture('listOfInquiries.json').then((fixture) => {
           fixture.inquiries[0].inquiry_status = 'started'
+          fixture.inquiries[0].broker = 'Mr. Johnny'
           cy.intercept(
             'GET',
             'https://flex-coast-development.herokuapp.com/api/inquiries',
@@ -51,7 +54,7 @@ describe('Brokers have their names attached to initiated inquiries', () => {
           )
         })
         cy.get('[data-cy=status-btn-2]').click()
-        cy.get('[data-cy=broker]').should('contain', 'Johnny Cage')
+        cy.get('[data-cy=broker]').should('contain', 'Mr. Johnny')
       })
     })
   })

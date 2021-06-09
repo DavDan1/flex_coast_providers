@@ -37,12 +37,17 @@
     background-color: $secondaryColor;
     color: white;
 
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
+
     .MuiSvgIcon-root {
       color: white;
     }
 
     img {
-      margin: 50px 10px 5px;
+      margin: 50px 10px 25px;
     }
   }
 }
@@ -165,6 +170,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    p {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #333;
+    }
 
     .form-container {
       margin-top: 50px;
