@@ -267,6 +267,12 @@
           flex-direction: column;
 }
 
+.login-page .login-container h1 {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #333;
+}
+
 .login-page .login-container p {
   margin-top: 50px;
   font-size: 13px;
@@ -282,6 +288,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 75%;
 }
 
 .login-page .login-container .form-container .MuiFormControl-root {

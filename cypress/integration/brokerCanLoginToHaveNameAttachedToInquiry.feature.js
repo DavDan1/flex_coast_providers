@@ -60,7 +60,23 @@ describe('Brokers have their names attached to initiated inquiries', () => {
   })
 
   describe('Unsuccessfully with wrong credentials', () => {
-    // Types wrong password
+    beforeEach(() => {
+      cy.intercept(
+        'POST',
+        'https://flex-coast-development.herokuapp.com/api/auth/sign_in',
+        { body: { data: { errors: ['Wrong credentials, please try again'] } } }
+      )
+      cy.get('[data-cy=email-field]').type('johnny@cage.com')
+      cy.get('[data-cy=password-field]').type('assword')
+      cy.get('[data-cy=login-btn]').click()
+    })
+
+    it('is expected to show an error message', () => {
+      cy.get('[data-cy=error-message]').should(
+        'contain',
+        'Wrong credentials, please try again'
+      )
+    })
   })
 
   describe('Unsuccessfully as a non-authenticated broker', () => {
