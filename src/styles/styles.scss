@@ -20,7 +20,6 @@
   }
 
   .menu-button {
-    position: absolute;
     left: 0;
     top: 75px/2;
     margin-left: 25px;
@@ -43,10 +42,8 @@
     }
 
     img {
-      margin: 50px 10px 5px ;
-      
+      margin: 50px 10px 5px;
     }
- 
   }
 }
 
@@ -63,7 +60,6 @@
 }
 
 .table {
-  //margin-top: 50px;
   height: auto;
   @media only screen and (max-width: $smallScreen) {
     max-width: 600px;
