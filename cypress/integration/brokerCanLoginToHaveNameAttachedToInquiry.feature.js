@@ -46,7 +46,7 @@ describe('Brokers have their names attached to initiated inquiries', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
         cy.fixture('listOfInquiries.json').then((fixture) => {
           fixture.inquiries[0].inquiry_status = 'started'
-          fixture.inquiries[0].broker = 'Mr. Johnny'
+          fixture.inquiries[0].broker = {name:'Mr. Johnny'}
           cy.intercept(
             'GET',
             'https://flex-coast-development.herokuapp.com/api/inquiries',
