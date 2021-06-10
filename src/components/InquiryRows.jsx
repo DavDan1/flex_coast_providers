@@ -100,17 +100,17 @@ const InquiryRows = ({ item }) => {
                         data-cy='status-btn-1'
                         value='pending'
                         control={<Radio />}
-                        label='Pending'
+                        label='set_to_pending'
                       />
                       <FormControlLabel
                         data-cy='status-btn-2'
-                        value='started'
+                        value='start'
                         control={<Radio />}
                         label='Started'
                       />
                       <FormControlLabel
                         data-cy='status-btn-3'
-                        value='done'
+                        value='finish'
                         control={<Radio />}
                         label='Done'
                       />

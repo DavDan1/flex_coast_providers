@@ -13,7 +13,6 @@ const Sidebar = () => {
   return (
     <Drawer className='drawer' variant='permanent'>
       <ReactLogo />
-      {/* <img src={logo} alt='logo'/> */}
       <p>Welcome back</p>
       <p data-cy='broker-name'>{name}</p>
       <List>
