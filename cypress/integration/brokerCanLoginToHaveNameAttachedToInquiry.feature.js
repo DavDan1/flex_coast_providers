@@ -59,7 +59,7 @@ describe('Brokers have their names attached to initiated inquiries', () => {
     })
   })
 
-  describe.only('Unsuccessfully with wrong credentials', () => {
+  describe('Unsuccessfully with wrong credentials', () => {
     beforeEach(() => {
       cy.intercept(
         'POST',
