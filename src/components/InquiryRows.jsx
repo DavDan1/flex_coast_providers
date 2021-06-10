@@ -87,7 +87,7 @@ const InquiryRows = ({ item }) => {
                 </p>
                 {item.broker && (
                   <p>
-                    Active broker: <span data-cy='broker'>{item.broker}</span>
+                    Active broker: <span data-cy='broker'>{item.broker.name}</span>
                   </p>
                 )}
                 <div className='status-buttons-container'>
