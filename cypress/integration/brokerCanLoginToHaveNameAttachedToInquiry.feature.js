@@ -2,14 +2,14 @@ describe('Brokers have their names attached to initiated inquiries', () => {
   beforeEach(() => {
     cy.intercept(
       'GET',
-      'https://flex-coast-development.herokuapp.com/api/inquiries',
+      'https://flex-coast-api-development.herokuapp.com/api/inquiries',
       {
         fixture: 'listOfInquiries.json',
       }
     )
     cy.intercept(
       'PUT',
-      'https://flex-coast-development.herokuapp.com/api/inquiries/**',
+      'https://flex-coast-api-development.herokuapp.com/api/inquiries/**',
       {
         message: 'The inquiry status has been updated',
       }
@@ -21,12 +21,12 @@ describe('Brokers have their names attached to initiated inquiries', () => {
     beforeEach(() => {
       cy.intercept(
         'POST',
-        'https://flex-coast-development.herokuapp.com/api/auth/sign_in',
+        'https://flex-coast-api-development.herokuapp.com/api/auth/sign_in',
         { fixture: 'broker.json' }
       )
       cy.intercept(
         'GET',
-        'https://flex-coast-development.herokuapp.com/api/auth/validate_token',
+        'https://flex-coast-api-development.herokuapp.com/api/auth/validate_token',
         { fixture: 'broker.json', headers: { uid: 'johnny@cage.com' } }
       )
       cy.get('[data-cy=email-field]').type('johnny@cage.com')
@@ -46,10 +46,10 @@ describe('Brokers have their names attached to initiated inquiries', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
         cy.fixture('listOfInquiries.json').then((fixture) => {
           fixture.inquiries[0].inquiry_status = 'started'
-          fixture.inquiries[0].broker = {name:'Mr. Johnny'}
+          fixture.inquiries[0].broker = { name: 'Mr. Johnny' }
           cy.intercept(
             'GET',
-            'https://flex-coast-development.herokuapp.com/api/inquiries',
+            'https://flex-coast-api-development.herokuapp.com/api/inquiries',
             { body: fixture }
           )
         })
@@ -63,7 +63,7 @@ describe('Brokers have their names attached to initiated inquiries', () => {
     beforeEach(() => {
       cy.intercept(
         'POST',
-        'https://flex-coast-development.herokuapp.com/api/auth/sign_in',
+        'https://flex-coast-api-development.herokuapp.com/api/auth/sign_in',
         {
           statusCode: 422,
           body: { data: { errors: ['Wrong credentials, please try again'] } },

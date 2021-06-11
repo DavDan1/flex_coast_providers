@@ -87,7 +87,8 @@ const InquiryRows = ({ item }) => {
                 </p>
                 {item.broker && (
                   <p>
-                    Active broker: <span data-cy='broker'>{item.broker.name}</span>
+                    Active broker:
+                    <span data-cy='broker'>{item.broker.name}</span>
                   </p>
                 )}
                 <div className='status-buttons-container'>
@@ -98,18 +99,23 @@ const InquiryRows = ({ item }) => {
                       onChange={(event) => statusHandler(event.target.value)}>
                       <FormControlLabel
                         data-cy='status-btn-1'
-                        value='pending'
+                        disabled={inquiryStatus === 'done'}
+                        checked={inquiryStatus === 'pending'}
+                        value='set_to_pending'
                         control={<Radio />}
-                        label='set_to_pending'
+                        label='Pending'
                       />
                       <FormControlLabel
                         data-cy='status-btn-2'
+                        checked={inquiryStatus === 'started'}
                         value='start'
                         control={<Radio />}
                         label='Started'
                       />
                       <FormControlLabel
                         data-cy='status-btn-3'
+                        disabled={inquiryStatus === 'pending'}
+                        checked={inquiryStatus === 'done'}
                         value='finish'
                         control={<Radio />}
                         label='Done'

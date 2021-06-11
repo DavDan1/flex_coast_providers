@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals'
 axios.defaults.baseURL =
   process.env.REACT_APP_STAGE === 'production'
     ? 'https://flex-coast-production.herokuapp.com/api'
-    : 'https://flex-coast-development.herokuapp.com/api'
+    : 'https://flex-coast-api-development.herokuapp.com/api'
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,7 +2,7 @@ describe('User can see the inquiries', () => {
   beforeEach(() => {
     cy.intercept(
       'GET',
-      'https://flex-coast-development.herokuapp.com/api/inquiries',
+      'https://flex-coast-api-development.herokuapp.com/api/inquiries',
       {
         fixture: 'listOfInquiries.json',
       }
