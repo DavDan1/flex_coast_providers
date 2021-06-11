@@ -345,6 +345,7 @@
   border-color: #ffd09c;
 }
 
+.login-page .login-container .form-container .MuiFormLabel-root,
 .login-page .login-container .form-container .MuiFormLabel-root.Mui-focused {
   color: #ffd09c;
 }

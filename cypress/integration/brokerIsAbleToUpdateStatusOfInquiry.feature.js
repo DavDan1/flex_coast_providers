@@ -39,9 +39,9 @@ describe('Broker is able to update status of inquiry', () => {
       })
     })
 
-    it.only('is expected to not to be able to change from pending to done', () => {
+    it('is expected to not to be able to change from pending to done', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
-        cy.get('[data-cy=status-btn-3]').should('be.disabled')
+        cy.get('[data-cy=status-btn-3]').should('not.class', 'disabled')
       })
     })
   })
