@@ -3,6 +3,7 @@ import loginImage from '../assets/login-image.jpg'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Authentication from '../modules/Authentication'
+import { ReactComponent as ReactLogo } from '../assets/logo_4.svg'
 
 const LoginLandingPage = () => {
   const handleLogin = (event) => {
@@ -13,6 +14,8 @@ const LoginLandingPage = () => {
     <div className='login-page'>
       <img src={loginImage} className='login-image' alt='office background' />
       <div className='login-container'>
+        <ReactLogo className='login-logo' />
+        {/* <img src={logo} alt='logo' className='login-logo' /> */}
         <h1>Sign in</h1>
         <form onSubmit={handleLogin} className='form-container'>
           <TextField
