@@ -104,7 +104,7 @@ const InquiryRows = ({ item }) => {
                       onChange={(event) => statusHandler(event.target.value)}>
                       <FormControlLabel
                         data-cy='status-btn-1'
-                        disabled={inquiryStatus === 'done'}
+                        disabled={item.inquiry_status === 'done'}
                         checked={item.inquiry_status === 'pending'}
                         value='set_to_pending'
                         control={<Radio />}
@@ -119,7 +119,7 @@ const InquiryRows = ({ item }) => {
                       />
                       <FormControlLabel
                         data-cy='status-btn-3'
-                        disabled={inquiryStatus === 'pending'}
+                        disabled={item.inquiry_status === 'pending'}
                         checked={item.inquiry_status === 'done'}
                         value='finish'
                         control={<Radio />}
