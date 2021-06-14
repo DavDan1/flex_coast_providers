@@ -8,15 +8,20 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
+import TextField from '@material-ui/core/TextField'
 import Inquiries from '../modules/Inquiries'
 import ErrorMessage from './ErrorMessage'
 
 const InquiryRows = ({ item }) => {
   const { error, message } = useSelector((state) => state)
   const [open, setOpen] = useState(false)
+  const [noteInput, setNoteInput]= useState()
   const isSmall = useMediaQuery('(max-width:600px)')
   const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
 
+  const createNoteHandler = () => {
+    Inquiries.createNote(noteInput)
+  }
   const statusHandler = (value) => {
     Inquiries.update(item.id, value, setInquiryStatus)
   }
@@ -131,19 +136,29 @@ const InquiryRows = ({ item }) => {
                 </div>
                 {error && <ErrorMessage text={message} />}
               </div>
-              <div className='notes-container'>
-                {item.notes.map((note) => {
-                  return (
-                    <p data-cy='note' className='notes-text' key={note.id}>
-                      {note.body}
-                      {', '}
-                      <span>
-                        by:{' '}
-                        {note.creator.name ? note.creator.name : note.creator}
-                      </span>
-                    </p>
-                  )
-                })}
+              <div className='note-info-container'>
+                <div className='notes-container'>
+                  {item.notes.map((note) => {
+                    return (
+                      <p data-cy='note' className='notes-text' key={note.id}>
+                        <span>
+                          {note.date}
+                          {': '}
+                        </span>
+                        {note.body}
+                        {', '}
+                        <span>
+                          by:{' '}
+                          {note.creator.name ? note.creator.name : note.creator}
+                        </span>
+                      </p>
+                    )
+                  })}
+                </div>
+                <input type='text' name='notes' placeholder='Write note' onChange={(event)=> setNoteInput(event.target.value)} />
+                <button type='button' onClick={() => createNoteHandler()}>
+                  Create
+                </button>
               </div>
             </div>
           </Collapse>

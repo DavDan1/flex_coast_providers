@@ -16,7 +16,7 @@ describe('Brokers can create new notes', () => {
   })
   describe('Successfully', () => {
     it('is expected to display the new message on top of the notes list', () => {
-      
+      cy.get('[data-cy=note-input]').type('Client has monthly budget of 50.000 sek')
       cy.fixture('listOfInquiries.json').then((fixture) => {
         let newNote = {
           body: 'Client has monthly budget of 50.000 sek',
@@ -35,8 +35,14 @@ describe('Brokers can create new notes', () => {
           { body: fixture }
         )
       })
+      cy.get('[data-cy=note-submit-btn]').click()
+      cy.get('[data-cy=note]')
+          .first()
+          .should('contain', 'Client has monthly budget of 50.000 sek')
+          .and('contain', 'by: John Doe')
     })
   })
 
-  describe('Unsuccessfully', () => {})
+  describe('Unsuccessfully', () => {
+  })
 })
