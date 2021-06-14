@@ -66,13 +66,12 @@ const InquiryRows = ({ item }) => {
                 </p>
                 <p data-cy='locations'>
                   Locations:
-                  {Array.isArray(item.locations) &&
-                    item.locations.map((location, index) => (
-                      <div key={index}>
-                        <span>{location}</span>
-                        <br />
-                      </div>
-                    ))}
+                  {item.locations.map((location, index) => (
+                    <div key={index}>
+                      <span>{location}</span>
+                      <br />
+                    </div>
+                  ))}
                 </p>
                 <p data-cy='phone'>
                   Phone number: <span>{item.phone}</span>
