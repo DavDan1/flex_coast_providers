@@ -65,13 +65,14 @@ const InquiryRows = ({ item }) => {
                   <span>{item.flexible ? 'flexible' : 'full time'}</span>
                 </p>
                 <p data-cy='locations'>
-                  Locations:{' '}
-                  {item.locations.map((location, index) => (
-                    <div key={index}>
-                      <span>{location}</span>
-                      <br />
-                    </div>
-                  ))}
+                  Locations:
+                  {Array.isArray(item.locations) &&
+                    item.locations.map((location, index) => (
+                      <div key={index}>
+                        <span>{location}</span>
+                        <br />
+                      </div>
+                    ))}
                 </p>
                 <p data-cy='phone'>
                   Phone number: <span>{item.phone}</span>
@@ -130,7 +131,20 @@ const InquiryRows = ({ item }) => {
                 </div>
                 {error && <ErrorMessage text={message} />}
               </div>
-              <div className='notes-container'>Notes placeholder</div>
+              <div className='notes-container'>
+                {item.notes.map((note) => {
+                  return (
+                    <p data-cy='note' className='notes-text' key={note.id}>
+                      {note.body}
+                      {', '}
+                      <span>
+                        by:{' '}
+                        {note.creator.name ? note.creator.name : note.creator}
+                      </span>
+                    </p>
+                  )
+                })}
+              </div>
             </div>
           </Collapse>
         </TableCell>

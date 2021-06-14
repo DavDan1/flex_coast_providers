@@ -17,7 +17,15 @@
       ],
       "start_date": "21 Jun 2021",
       "inquiry_date": "06 Jun 2021",
-      "inquiry_status": "pending"
+      "inquiry_status": "pending",
+      "notes": [
+        {
+          "body": "This inquiry was submitted 14 Jun 2021",
+          "id": 22,
+          "date": "14 Jun 2021",
+          "creator": "System"
+        }
+      ]
     },
     {
       "id": 2,

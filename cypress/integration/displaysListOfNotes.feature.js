@@ -17,24 +17,24 @@ describe('Client displays list of notes on each Inquiry', () => {
   describe('Successfully', () => {
     it('is expected to display a list of 3', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
-        cy.get('[data-cy=notes]').should('have.length', '3')
+        cy.get('[data-cy=note]').should('have.length', '3')
       })
     })
 
     it('is expected to display the expected content', () => {
       cy.get('[data-cy=inquiry-collapsible-cell]').within(() => {
-        cy.get('[data-cy=notes]')
+        cy.get('[data-cy=note]')
           .first()
-          .should('include', 'This inquiry was submitted 14 Jun 2021')
-          .and('include', 'by: System')
-        cy.get('[data-cy=notes]')
+          .should('contain', 'This inquiry was submitted 14 Jun 2021')
+          .and('contain', 'by: System')
+        cy.get('[data-cy=note]')
           .eq(1)
-          .should('include', 'This inquiry was started 14 Jun 2021')
-          .and('include', 'by: John Doe')
-        cy.get('[data-cy=notes]')
+          .should('contain', 'This inquiry was started 14 Jun 2021')
+          .and('contain', 'by: John Doe')
+        cy.get('[data-cy=note]')
           .eq(2)
-          .should('include', 'This inquiry was finished 14 Jun 2021')
-          .and('include', 'by: John Doe')
+          .should('contain', 'This inquiry was finished 14 Jun 2021')
+          .and('contain', 'by: John Doe')
       })
     })
   })
