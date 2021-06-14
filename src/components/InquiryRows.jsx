@@ -8,7 +8,6 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
-import TextField from '@material-ui/core/TextField'
 import Inquiries from '../modules/Inquiries'
 import ErrorMessage from './ErrorMessage'
 
@@ -20,7 +19,7 @@ const InquiryRows = ({ item }) => {
   const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
 
   const createNoteHandler = () => {
-    Inquiries.createNote(noteInput)
+    Inquiries.createNote(item.id, noteInput)
   }
   const statusHandler = (value) => {
     Inquiries.update(item.id, value, setInquiryStatus)
@@ -155,8 +154,8 @@ const InquiryRows = ({ item }) => {
                     )
                   })}
                 </div>
-                <input type='text' name='notes' placeholder='Write note' onChange={(event)=> setNoteInput(event.target.value)} />
-                <button type='button' onClick={() => createNoteHandler()}>
+                <input type='text' name='notes' placeholder='Write note' data-cy='note-input' onChange={(event)=> setNoteInput(event.target.value)} />
+                <button type='button' data-cy='note-submit-btn' onClick={() => createNoteHandler()}>
                   Create
                 </button>
               </div>

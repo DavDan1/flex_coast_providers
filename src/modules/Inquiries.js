@@ -25,6 +25,25 @@ const Inquiries = {
       })
     }
   },
+
+  async createNote(id, noteInput) {
+    debugger
+    let params = { note: { body: noteInput } }
+    try {
+      let response = await axios.post(`/inquiries/${id}/notes`, params, {
+        headers: getHeaders(),
+      })
+      try {
+        let response = await axios.get('/inquiries')
+        setInquiries(response)
+      } catch (error) {}
+    } catch (error) {
+      store.dispatch({
+        type: 'SET_ERROR_MESSAGE',
+        payload: 'Something went wrong, Please try again later',
+      })
+    }
+  },
 }
 
 export default Inquiries

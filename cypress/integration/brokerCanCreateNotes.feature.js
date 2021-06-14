@@ -7,6 +7,11 @@ describe('Brokers can create new notes', () => {
         fixture: 'listOfInquiries.json',
       }
     )
+    cy.intercept(
+      'POST',
+      'https://flex-coast-api-development.herokuapp.com/api/inquiries/**/notes',
+      { message: 'Note successfully created' }
+    )
     cy.visit('/')
     cy.window().its('store').invoke('dispatch', {
       type: 'AUTHENTICATE',
@@ -16,7 +21,9 @@ describe('Brokers can create new notes', () => {
   })
   describe('Successfully', () => {
     it('is expected to display the new message on top of the notes list', () => {
-      cy.get('[data-cy=note-input]').type('Client has monthly budget of 50.000 sek')
+      cy.get('[data-cy=note-input]').type(
+        'Client has monthly budget of 50.000 sek'
+      )
       cy.fixture('listOfInquiries.json').then((fixture) => {
         let newNote = {
           body: 'Client has monthly budget of 50.000 sek',
@@ -28,7 +35,7 @@ describe('Brokers can create new notes', () => {
             name: 'John Doe',
           },
         }
-        fixture.inquiries[4].notes.unshift(newNote)
+        fixture.inquiries[5].notes.unshift(newNote)
         cy.intercept(
           'GET',
           'https://flex-coast-api-development.herokuapp.com/api/inquiries',
@@ -37,12 +44,11 @@ describe('Brokers can create new notes', () => {
       })
       cy.get('[data-cy=note-submit-btn]').click()
       cy.get('[data-cy=note]')
-          .first()
-          .should('contain', 'Client has monthly budget of 50.000 sek')
-          .and('contain', 'by: John Doe')
+        .first()
+        .should('contain', 'Client has monthly budget of 50.000 sek')
+        .and('contain', 'by: John Doe')
     })
   })
 
-  describe('Unsuccessfully', () => {
-  })
+  describe('Unsuccessfully', () => {})
 })
