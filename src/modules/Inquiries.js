@@ -28,12 +28,13 @@ const Inquiries = {
     }
   },
 
-  async createNote(id, noteInput) {
+  async createNote(id, noteInput, setNoteInput) {
     let params = { note: { body: noteInput } }
     try {
       await axios.post(`/inquiries/${id}/notes`, params, {
         headers: getHeaders(),
       })
+      setNoteInput('')
       try {
         setInquiries()
       } catch (error) {

@@ -11,14 +11,13 @@ import FormControl from '@material-ui/core/FormControl'
 import Inquiries from '../modules/Inquiries'
 
 const InquiryRows = ({ item }) => {
-  const { error, message } = useSelector((state) => state)
   const [open, setOpen] = useState(false)
-  const [noteInput, setNoteInput]= useState()
+  const [noteInput, setNoteInput] = useState()
   const isSmall = useMediaQuery('(max-width:600px)')
   const [inquiryStatus, setInquiryStatus] = useState(item.inquiry_status)
 
   const createNoteHandler = () => {
-    Inquiries.createNote(item.id, noteInput)
+    Inquiries.createNote(item.id, noteInput, setNoteInput)
   }
   const statusHandler = (value) => {
     Inquiries.update(item.id, value, setInquiryStatus)
@@ -137,23 +136,31 @@ const InquiryRows = ({ item }) => {
                 <div className='notes-container'>
                   {item.notes.map((note) => {
                     return (
-                      <p data-cy='note' className='notes-text' key={note.id}>
-                        <span>
-                          {note.date}
-                          {': '}
-                        </span>
-                        {note.body}
-                        {', '}
-                        <span>
-                          by:{' '}
+                      <>
+                        <p data-cy='note-meta' className='notes-meta'>
+                          {note.date}, by:{' '}
                           {note.creator.name ? note.creator.name : note.creator}
-                        </span>
-                      </p>
+                        </p>
+                        <p data-cy='note' className='notes-text' key={note.id}>
+                          {note.body}
+                        </p>
+                      </>
                     )
                   })}
                 </div>
-                <input type='text' name='notes' placeholder='Write note' data-cy='note-input' onChange={(event)=> setNoteInput(event.target.value)} />
-                <button type='button' data-cy='note-submit-btn' onClick={() => createNoteHandler()}>
+                <input
+                  className='notes-input'
+                  value={noteInput}
+                  type='text'
+                  name='notes'
+                  placeholder='Write a note'
+                  data-cy='note-input'
+                  onChange={(event) => setNoteInput(event.target.value)}
+                />
+                <button
+                  className='notes-button'
+                  data-cy='note-submit-btn'
+                  onClick={() => createNoteHandler()}>
                   Create
                 </button>
               </div>
