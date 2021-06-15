@@ -9,7 +9,6 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import Inquiries from '../modules/Inquiries'
-import ErrorMessage from './ErrorMessage'
 
 const InquiryRows = ({ item }) => {
   const { error, message } = useSelector((state) => state)
@@ -133,7 +132,6 @@ const InquiryRows = ({ item }) => {
                     </RadioGroup>
                   </FormControl>
                 </div>
-                {error && <ErrorMessage text={message} />}
               </div>
               <div className='note-info-container'>
                 <div className='notes-container'>
