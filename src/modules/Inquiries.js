@@ -41,7 +41,6 @@ const Inquiries = {
         errorHandler(error)
       }
     } catch (error) {
-      debugger
       if (error.response?.status === 422) {
         store.dispatch({
           type: 'SET_ERROR_MESSAGE',

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import Collapse from '@material-ui/core/Collapse'
@@ -26,12 +25,12 @@ const InquiryRows = ({ item }) => {
   return (
     <>
       <TableRow onClick={() => setOpen(!open)} hover data-cy='inquiry'>
-        <TableCell data-cy='company'>{item.company}</TableCell>
+      {item.broker ? 
+        <TableCell data-cy='broker-header'>{item.broker.name}</TableCell> : <TableCell>Not assigned</TableCell> }
         <TableCell data-cy='inquiry-date'>{item.inquiry_date}</TableCell>
         {!isSmall && (
           <>
             <TableCell data-cy='email'>{item.email}</TableCell>
-            <TableCell data-cy='start-date'>{item.start_date}</TableCell>
             <TableCell data-cy='inquiry status'>
               {item.inquiry_status}
             </TableCell>
