@@ -46,10 +46,10 @@ describe('Brokers can create new notes', () => {
       })
       cy.get('[data-cy=note-submit-btn]').click()
       cy.wait(1000)
+      cy.get('[data-cy=note-meta]').first().should('contain', 'by: John Doe')
       cy.get('[data-cy=note]')
         .first()
         .should('contain', 'Client has monthly budget of 50.000 sek')
-        .and('contain', 'by: John Doe')
 
       context('and it clears the input field', () => {
         cy.get('[data-cy=note-input]').should('have.value', '')
