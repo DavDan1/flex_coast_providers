@@ -147,7 +147,7 @@ const InquiryRows = ({ item }) => {
                     )
                   })}
                 </div>
-                <input
+                <textarea
                   className='notes-input'
                   value={noteInput}
                   type='text'
